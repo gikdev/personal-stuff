@@ -1,0 +1,34 @@
+{
+  "name": "bahrami85-resume",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "validate-data": "bun run ./src/data/validate.ts",
+    "check": "biome check --write",
+    "predev": "npm run validate-data",
+    "dev": "next dev --turbopack",
+    "prebuild": "npm run validate-data",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "cva": "^1.0.0-beta.4",
+    "next": "15.4.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^4.0.13"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.2",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

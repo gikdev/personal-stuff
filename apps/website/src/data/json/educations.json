@@ -1,0 +1,24 @@
+[
+  {
+    "id": "computer-major-isaar-1401",
+    "title": "رشته شبکه و نرم‌افزار رایانه (دیپلم)",
+    "place": "هنرستان فنی‌وحرفه‌ای ایثار",
+    "city": "قم",
+    "time": {
+      "from": "۱۴۰۱",
+      "to": "۱۴۰۴"
+    },
+    "description": null
+  },
+  {
+    "id": "english-diploma-adiban-1397",
+    "title": "زبان انگلیسی (دیپلم)",
+    "place": "آموزشگاه ادیبان",
+    "city": "قم",
+    "time": {
+      "from": "۱۳۹۷",
+      "to": "۱۴۰۲"
+    },
+    "description": "به لطف خدا در مدت ۵ سال، موفق به اخذ «دیپلم» زبان انگلیسی و سطح B2 در [رده‌بندی CEFR](https://fa.wikipedia.org/wiki/%DA%86%D8%A7%D8%B1%DA%86%D9%88%D8%A8_%D8%A7%D8%B1%D9%88%D9%BE%D8%A7%DB%8C%DB%8C_%D9%85%D8%B4%D8%AA%D8%B1%DA%A9_%D9%85%D8%B1%D8%AC%D8%B9_%D8%A8%D8%B1%D8%A7%DB%8C_%D8%B2%D8%A8%D8%A7%D9%86%E2%80%8C%D9%87%D8%A7) شدم."
+  }
+]

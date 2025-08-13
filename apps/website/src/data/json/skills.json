@@ -1,0 +1,42 @@
+[
+  {
+    "id": "languages-and-markup",
+    "title": "Languages & Markup",
+    "description": "HTML5, CSS3, JavaScript (ES6+)"
+  },
+  {
+    "id": "frameworks-and-development",
+    "title": "Frameworks & Development",
+    "description": "React, TypeScript, component-based development, state management (Zustand, Jotai, Context API)"
+  },
+  {
+    "id": "tools-and-platforms",
+    "title": "Tools & Platforms",
+    "description": "Git, GitHub, BiomeJS, VS Code, NPM"
+  },
+  {
+    "id": "testing",
+    "title": "Testing",
+    "description": "Vitest, Playwright"
+  },
+  {
+    "id": "apis",
+    "title": "APIs",
+    "description": "REST APIs"
+  },
+  {
+    "id": "design-and-ux",
+    "title": "Design & UX",
+    "description": "Tailwind CSS, responsive design, UI/UX fundamentals, Figma"
+  },
+  {
+    "id": "soft-skills",
+    "title": "Soft Skills",
+    "description": "Fast learner, self-motivated, detail-oriented"
+  },
+  {
+    "id": "languages",
+    "title": "Languages",
+    "description": "English (CEFR Level: B2)"
+  }
+]
