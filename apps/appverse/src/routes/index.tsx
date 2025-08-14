@@ -1,8 +1,8 @@
 import type { Icon } from "@phosphor-icons/react"
 import { createFileRoute, Link } from "@tanstack/react-router"
+import type { ComponentProps } from "react"
 import { type App, apps } from "#/data/apps"
 import { cx } from "#/shared/cva.config"
-import type { ComponentProps } from "react"
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -35,7 +35,11 @@ function mapApp(app: App) {
       {appItem}
     </div>
   ) : (
-    <Link to={`/apps/${app.id}` as ComponentProps<typeof Link>['to']} key={key} className="">
+    <Link
+      to={`/apps/${app.id}` as ComponentProps<typeof Link>["to"]}
+      key={key}
+      className=""
+    >
       {appItem}
     </Link>
   )
