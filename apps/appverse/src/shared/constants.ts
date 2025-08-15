@@ -1,5 +1,5 @@
 export const Keys = {
   WorkTimer: {
-    Settings: "work-timer-settings",
+    Store: "work-timer-store",
   },
 }

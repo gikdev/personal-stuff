@@ -9,7 +9,7 @@ import { TopAppBar } from "#/components/routes/top-app-bar"
 import { btnIcon, page } from "#/shared/skins"
 import {
   getCurrencyText,
-  useSettingsStore,
+  useWorkTimerStore,
   WorkTimerBottomTabs,
 } from "./-shared"
 
@@ -18,8 +18,8 @@ export const Route = createFileRoute("/apps/work-timer/total")({
 })
 
 function RouteComponent() {
-  const hourlyRate = useSettingsStore(s => s.hourlyRate)
-  const currency = useSettingsStore(s => s.currency)
+  const hourlyRate = useWorkTimerStore(s => s.hourlyRate)
+  const currency = useWorkTimerStore(s => s.currency)
 
   return (
     <div className={page()}>

@@ -1,8 +1,8 @@
 import * as skins from "#/shared/skins"
-import { type Currency, useSettingsStore } from "../-shared"
+import { type Currency, useWorkTimerStore } from "../-shared"
 
 export function SettingsForm() {
-  const settings = useSettingsStore()
+  const settings = useWorkTimerStore()
 
   return (
     <>

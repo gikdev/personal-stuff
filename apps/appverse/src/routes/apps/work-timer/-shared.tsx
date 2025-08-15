@@ -1,5 +1,4 @@
 import { ClockIcon, GearIcon, TimerIcon } from "@phosphor-icons/react"
-import z from "zod"
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { BottomTabBar, type TabItem } from "#/components/routes/bottom-tab-bar"
@@ -39,30 +38,33 @@ export const getCurrencyText = (currency: Currency) => {
   return "?"
 }
 
-export const SettingsSchema = z.object({
-  currency: z.enum(currencies, "لطفا یک مورد رو انتخاب کنید"),
-  hourlyRate: z.number().nonnegative("عدد وارد شده باید مثبت باشد"),
-})
+interface WorkTimerStore {
+  currency: Currency
+  setCurrency: (currency: WorkTimerStore["currency"]) => void
 
-export type Settings = z.infer<typeof SettingsSchema>
+  hourlyRate: number
+  setHourlyRate: (hourlyRate: WorkTimerStore["hourlyRate"]) => void
 
-const DEFAULT_SETTINGS: Settings = {
-  currency: "IRT",
-  hourlyRate: 100,
+  totalMinutes: number
+  setTotalMinutes: (totalMinutes: WorkTimerStore["totalMinutes"]) => void
+  incTotalMinutes: () => void
+  decTotalMinutes: () => void
 }
 
-interface SettingsStore extends Settings {
-  setCurrency: (currency: SettingsStore["currency"]) => void
-  setHourlyRate: (hourlyRate: SettingsStore["hourlyRate"]) => void
-}
-
-export const useSettingsStore = create<SettingsStore>()(
+export const useWorkTimerStore = create<WorkTimerStore>()(
   persist(
     set => ({
-      ...DEFAULT_SETTINGS,
+      currency: "IRT",
       setCurrency: currency => set({ currency }),
+
+      hourlyRate: 100,
       setHourlyRate: hourlyRate => set({ hourlyRate }),
+
+      totalMinutes: 0,
+      setTotalMinutes: totalMinutes => set({ totalMinutes }),
+      incTotalMinutes: () => set(s => ({ totalMinutes: s.totalMinutes + 1 })),
+      decTotalMinutes: () => set(s => ({ totalMinutes: s.totalMinutes - 1 })),
     }),
-    { name: Keys.WorkTimer.Settings },
+    { name: Keys.WorkTimer.Store },
   ),
 )
