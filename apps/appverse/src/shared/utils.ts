@@ -1,19 +1,25 @@
+export function toPersianDigits(str: string): string {
+  const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]
+  return str.replace(/\d/g, d => persianDigits[+d])
+}
+
 export class TimeFormatter {
-  private totalMinutes = 0
+  private totalSeconds = 0
 
-  constructor(totalMinutes: number = 0) {
-    this.totalMinutes = totalMinutes
-  }
-
-  private toPersianDigits(str: string): string {
-    const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]
-    return str.replace(/\d/g, d => persianDigits[+d])
+  constructor(totalSeconds: number = 0) {
+    this.totalSeconds = totalSeconds
   }
 
   private formatTime(): string {
-    const hours = Math.floor(this.totalMinutes / 60)
-    const minutes = this.totalMinutes % 60
-    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`
+    const hours = Math.floor(this.totalSeconds / 3600)
+    const minutes = Math.floor((this.totalSeconds % 3600) / 60)
+    const seconds = this.totalSeconds % 60
+
+    return (
+      `${String(hours).padStart(2, "0")}:` +
+      `${String(minutes).padStart(2, "0")}:` +
+      `${String(seconds).padStart(2, "0")}`
+    )
   }
 
   toEnglishTime(): string {
@@ -21,6 +27,6 @@ export class TimeFormatter {
   }
 
   toPersianTime(): string {
-    return this.toPersianDigits(this.formatTime())
+    return toPersianDigits(this.formatTime())
   }
 }

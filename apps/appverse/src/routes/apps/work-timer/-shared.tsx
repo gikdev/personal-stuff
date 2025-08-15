@@ -45,25 +45,50 @@ interface WorkTimerStore {
   hourlyRate: number
   setHourlyRate: (hourlyRate: WorkTimerStore["hourlyRate"]) => void
 
-  totalMinutes: number
-  setTotalMinutes: (totalMinutes: WorkTimerStore["totalMinutes"]) => void
-  incTotalMinutes: () => void
-  decTotalMinutes: () => void
+  totalSeconds: number
+  setTotalSeconds: (totalSeconds: WorkTimerStore["totalSeconds"]) => void
+  incTotalSeconds: () => void
+  decTotalSeconds: () => void
+
+  startedAt: string | null
+  endedAt: string | null
+  start: () => void
+  end: () => void
+  resetTimer: () => void
+  getElapsedSeconds: () => number
+  addElapsedToTotal: () => void
 }
 
 export const useWorkTimerStore = create<WorkTimerStore>()(
   persist(
-    set => ({
+    (set, get) => ({
       currency: "IRT",
       setCurrency: currency => set({ currency }),
 
       hourlyRate: 100,
       setHourlyRate: hourlyRate => set({ hourlyRate }),
 
-      totalMinutes: 0,
-      setTotalMinutes: totalMinutes => set({ totalMinutes }),
-      incTotalMinutes: () => set(s => ({ totalMinutes: s.totalMinutes + 1 })),
-      decTotalMinutes: () => set(s => ({ totalMinutes: s.totalMinutes - 1 })),
+      totalSeconds: 0,
+      setTotalSeconds: totalSeconds => set({ totalSeconds }),
+      incTotalSeconds: () => set(s => ({ totalSeconds: s.totalSeconds + 60 })),
+      decTotalSeconds: () => set(s => ({ totalSeconds: s.totalSeconds - 60 })),
+
+      startedAt: null,
+      endedAt: null,
+      start: () => set({ startedAt: new Date().toISOString(), endedAt: null }),
+      end: () => set({ endedAt: new Date().toISOString() }),
+      resetTimer: () => set({ startedAt: null, endedAt: null }),
+      getElapsedSeconds: () => {
+        const { startedAt, endedAt } = get()
+        if (!startedAt) return 0
+        const start = new Date(startedAt).getTime()
+        const end = endedAt ? new Date(endedAt).getTime() : Date.now()
+        return Math.floor((end - start) / 1000)
+      },
+      addElapsedToTotal: () => {
+        const { getElapsedSeconds, setTotalSeconds, totalSeconds } = get()
+        setTotalSeconds(totalSeconds + getElapsedSeconds())
+      },
     }),
     { name: Keys.WorkTimer.Store },
   ),

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
+    "@reactuses/core": "^6.0.6",
     "@tailwindcss/vite": "^4.1.11",
     "@tanstack/react-form": "^1.19.1",
     "@tanstack/react-router": "^1.131.8",

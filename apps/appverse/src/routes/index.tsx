@@ -1,8 +1,12 @@
 import type { Icon } from "@phosphor-icons/react"
+import { CornersOutIcon } from "@phosphor-icons/react"
+import { useFullscreen } from "@reactuses/core"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import type { ComponentProps } from "react"
+import { useRef } from "react"
 import { type App, apps } from "#/data/apps"
 import { cx } from "#/shared/cva.config"
+import * as skins from "#/shared/skins"
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -16,10 +20,25 @@ function Index() {
         <span className="text-brand-500">محمدمهدی :)</span>
       </h3>
 
+      <div className="flex w-full items-center justify-center gap-8">
+        <GoFullscreen />
+      </div>
+
       <div className="flex flex-wrap items-center justify-center gap-4">
         {apps.map(mapApp)}
       </div>
     </div>
+  )
+}
+
+function GoFullscreen() {
+  const docRef = useRef<HTMLElement>(document.documentElement)
+  const [, { enterFullscreen }] = useFullscreen(docRef)
+
+  return (
+    <button type="button" className={skins.btnIcon()} onClick={enterFullscreen}>
+      <CornersOutIcon size={32} />
+    </button>
   )
 }
 
