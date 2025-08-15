@@ -71,7 +71,10 @@ export const useWorkTimerStore = create<WorkTimerStore>()(
       totalSeconds: 0,
       setTotalSeconds: totalSeconds => set({ totalSeconds }),
       incTotalSeconds: () => set(s => ({ totalSeconds: s.totalSeconds + 60 })),
-      decTotalSeconds: () => set(s => ({ totalSeconds: s.totalSeconds - 60 })),
+      decTotalSeconds: () =>
+        set(s => ({
+          totalSeconds: Math.max(0, s.totalSeconds - 60),
+        })),
 
       startedAt: null,
       endedAt: null,
@@ -86,8 +89,10 @@ export const useWorkTimerStore = create<WorkTimerStore>()(
         return Math.floor((end - start) / 1000)
       },
       addElapsedToTotal: () => {
-        const { getElapsedSeconds, setTotalSeconds, totalSeconds } = get()
+        const { getElapsedSeconds, setTotalSeconds, totalSeconds, resetTimer } =
+          get()
         setTotalSeconds(totalSeconds + getElapsedSeconds())
+        resetTimer()
       },
     }),
     { name: Keys.WorkTimer.Store },
