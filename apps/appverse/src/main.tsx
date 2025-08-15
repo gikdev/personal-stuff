@@ -1,4 +1,8 @@
-import { createRouter, RouterProvider } from "@tanstack/react-router"
+import {
+  createHashHistory,
+  createRouter,
+  RouterProvider,
+} from "@tanstack/react-router"
 import { StrictMode } from "react"
 import ReactDOM from "react-dom/client"
 import "./shared/styles.css"
@@ -6,7 +10,13 @@ import "./shared/styles.css"
 import { Pending } from "./routes/-pending"
 import { routeTree } from "./routeTree.gen"
 
-const router = createRouter({ routeTree, defaultPendingComponent: Pending })
+const hashHistory = createHashHistory()
+
+const router = createRouter({
+  routeTree,
+  history: hashHistory,
+  defaultPendingComponent: Pending,
+})
 
 declare module "@tanstack/react-router" {
   interface Register {
