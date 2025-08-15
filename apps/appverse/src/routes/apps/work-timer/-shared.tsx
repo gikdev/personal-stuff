@@ -1,7 +1,7 @@
 import { ClockIcon, GearIcon, TimerIcon } from "@phosphor-icons/react"
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
-import { BottomTabBar, type TabItem } from "#/components/routes/bottom-tab-bar"
+import { BottomTabBar, type TabItem } from "#/components/bottom-tab-bar"
 import { Keys } from "#/shared/constants"
 
 const workTimerTabs: TabItem[] = [

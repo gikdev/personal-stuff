@@ -5,7 +5,7 @@ import {
   PlusIcon,
 } from "@phosphor-icons/react"
 import { createFileRoute, Link } from "@tanstack/react-router"
-import { TopAppBar } from "#/components/routes/top-app-bar"
+import { TopAppBar } from "#/components/top-app-bar"
 import { btnIcon, page } from "#/shared/skins"
 import { TimeFormatter, toPersianDigits } from "#/shared/utils"
 import {

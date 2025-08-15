@@ -6,8 +6,8 @@ import {
   StopIcon,
 } from "@phosphor-icons/react"
 import { createFileRoute, Link } from "@tanstack/react-router"
-import { useEffect, useReducer } from "react"
-import { TopAppBar } from "#/components/routes/top-app-bar"
+import { useCallback, useEffect, useState } from "react"
+import { TopAppBar } from "#/components/top-app-bar"
 import { btnIcon, page } from "#/shared/skins"
 import { TimeFormatter } from "#/shared/utils"
 import { useWorkTimerStore, WorkTimerBottomTabs } from "./-shared"
@@ -49,19 +49,28 @@ function RouteComponent() {
 
 function TimerTime() {
   const getElapsedSeconds = useWorkTimerStore(s => s.getElapsedSeconds)
-  const timerTime = new TimeFormatter(getElapsedSeconds()).toPersianTime()
-  const [, refetch] = useReducer(x => x + 1, 0)
+  const forceUpdate = useForceUpdate()
 
   useEffect(() => {
-    const interval = setInterval(() => refetch(), 1000)
-    return () => clearInterval(interval)
-  }, [])
+    const id = setInterval(() => forceUpdate(), 100)
+    return () => clearInterval(id)
+  }, [forceUpdate])
+
+  const timerTime = new TimeFormatter(getElapsedSeconds()).toPersianTime()
 
   return (
     <p dir="ltr" className="text-title font-black text-tusi-100">
       {timerTime}
     </p>
   )
+}
+
+function useForceUpdate() {
+  const [, setCount] = useState(0)
+
+  const forceUpdate = useCallback(() => setCount(n => n + 1), [])
+
+  return forceUpdate
 }
 
 function SendBtn() {
