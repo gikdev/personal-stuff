@@ -3,9 +3,10 @@ import { StrictMode } from "react"
 import ReactDOM from "react-dom/client"
 import "./shared/styles.css"
 
+import { Pending } from "./routes/-pending"
 import { routeTree } from "./routeTree.gen"
 
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree, defaultPendingComponent: Pending })
 
 declare module "@tanstack/react-router" {
   interface Register {

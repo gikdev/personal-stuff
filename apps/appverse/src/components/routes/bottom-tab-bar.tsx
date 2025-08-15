@@ -30,20 +30,22 @@ function Tab({ Icon, title, url }: TabProps) {
   const { pathname } = useLocation()
   const isActive = url === pathname
 
-  const styles = cx(
+  const styleContainer = cx(
     `
+      flex flex-col gap-0 
       flex-1 cursor-pointer
       hover:bg-tusi-800 hover:text-tusi-100
-      flex flex-col gap-0 text-body-sm
       items-center justify-center
     `,
-    isActive ? "text-tusi-100 font-bold" : "",
+    isActive ? "text-tusi-100" : "",
   )
 
+  const styleText = cx("text-body-sm", isActive ? "font-bold" : "")
+
   return (
-    <Link to={url} className={styles}>
+    <Link to={url} className={styleContainer}>
       <Icon size={24} weight={isActive ? "fill" : "regular"} />
-      <span>{title}</span>
+      <span className={styleText}>{title}</span>
     </Link>
   )
 }
