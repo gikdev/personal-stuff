@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:website": "cross-env BASE_URL=/appverse npm run build",
+    "build:desktop": "cross-env BASE_URL=./ npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -26,9 +28,11 @@
   },
   "devDependencies": {
     "@tanstack/router-plugin": "^1.131.8",
+    "@types/node": "^24.3.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
+    "cross-env": "^10.0.0",
     "globals": "^16.3.0",
     "typescript": "~5.8.3",
     "vite": "^7.1.2"
