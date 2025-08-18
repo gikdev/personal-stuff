@@ -59,3 +59,7 @@ export const labeler = cva({
 })
 
 export const errorMsg = () => "text-danger-400 text-body-sm"
+
+export const elementGroup = cva({
+  base: "flex h-14 gap-1 rounded-md-elements overflow-hidden w-full",
+})

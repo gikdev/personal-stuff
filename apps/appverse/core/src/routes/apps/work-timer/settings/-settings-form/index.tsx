@@ -68,7 +68,7 @@ function DailyGoalInput() {
     <div className={skins.labeler()}>
       <label htmlFor={id}>هدف روزانه</label>
 
-      <div className="flex h-14 gap-1 rounded-md-elements overflow-hidden w-full">
+      <div className={skins.elementGroup()}>
         <ChangeDailyGoalBtn />
 
         <input

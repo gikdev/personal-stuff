@@ -16,7 +16,7 @@ function Container({ children, onOverlayClick }: ContainerProps) {
         onClick={onOverlayClick}
       />
 
-      <div className="flex flex-col rounded-t-md-elements max-h-[80dvh] overflow-hidden bg-tusi-950">
+      <div className="flex flex-col rounded-t-md-elements max-h-[80dvh] overflow-hidden bg-tusi-950 border-t border-tusi-800">
         {children}
       </div>
     </div>
