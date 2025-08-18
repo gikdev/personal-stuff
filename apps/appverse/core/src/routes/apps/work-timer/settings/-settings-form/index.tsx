@@ -1,8 +1,8 @@
-import { PencilSimpleIcon } from "@phosphor-icons/react"
 import { useId } from "react"
 import * as skins from "#/shared/skins"
 import { TimeFormatter } from "#/shared/utils"
-import { type Currency, useWorkTimerStore } from "../-shared"
+import { type Currency, useWorkTimerStore } from "../../-shared"
+import { ChangeDailyGoalBtn } from "./change-daily-goal-btn"
 
 const inputStyle = skins.input({ className: "flex-1 w-full" })
 
@@ -68,14 +68,8 @@ function DailyGoalInput() {
     <div className={skins.labeler()}>
       <label htmlFor={id}>هدف روزانه</label>
 
-      <div className="flex h-14 gap-1 rounded-md-elements overflow-scroll w-full">
-        <button
-          disabled
-          type="button"
-          className={skins.btnIcon({ size: "inputish", theme: "inputish" })}
-        >
-          <PencilSimpleIcon size={24} />
-        </button>
+      <div className="flex h-14 gap-1 rounded-md-elements overflow-hidden w-full">
+        <ChangeDailyGoalBtn />
 
         <input
           id={id}
