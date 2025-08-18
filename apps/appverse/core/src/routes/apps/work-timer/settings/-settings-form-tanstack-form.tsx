@@ -88,7 +88,7 @@
 //           <button
 //             type="submit"
 //             disabled={!canSubmit || isSubmitting}
-//             className="px-6 py-1 min-h-14 gap-2 flex items-center justify-center rounded-md-elements cursor-pointer bg-brand-600 hover:bg-brand-700 active:scale-95 text-tusi-100 disabled:bg-tusi-700 disabled:text-tusi-400 disabled:hover:bg-tusi-700 w-full disabled:active:scale-100 disabled:cursor-not-allowed"
+//             className="px-6 py-1 min-h-14 gap-2 flex items-center justify-center rounded-sm-elements cursor-pointer bg-brand-600 hover:bg-brand-700 active:scale-95 text-tusi-100 disabled:bg-tusi-700 disabled:text-tusi-400 disabled:hover:bg-tusi-700 w-full disabled:active:scale-100 disabled:cursor-not-allowed"
 //           >
 //             {isSubmitting ? (
 //               <>

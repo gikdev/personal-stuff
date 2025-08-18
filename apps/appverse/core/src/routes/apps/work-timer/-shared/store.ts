@@ -1,42 +1,7 @@
-import { ClockIcon, GearIcon, TimerIcon } from "@phosphor-icons/react"
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
-import { BottomTabBar, type TabItem } from "#/components/bottom-tab-bar"
 import { Keys } from "#/shared/constants"
-
-const workTimerTabs: TabItem[] = [
-  {
-    id: "timer",
-    url: "/apps/work-timer",
-    title: "تایمر",
-    Icon: TimerIcon,
-  },
-  {
-    id: "total",
-    url: "/apps/work-timer/total",
-    title: "مجموع",
-    Icon: ClockIcon,
-  },
-  {
-    id: "settings",
-    url: "/apps/work-timer/settings",
-    title: "تنظیمات",
-    Icon: GearIcon,
-  },
-]
-
-export const WorkTimerBottomTabs = () => (
-  <BottomTabBar tabItems={workTimerTabs} />
-)
-
-const currencies = ["IRT", "USD", "IRR"] as const
-export type Currency = (typeof currencies)[number]
-export const getCurrencyText = (currency: Currency) => {
-  if (currency === "IRR") return "ریال؟؟؟؟؟"
-  if (currency === "IRT") return "تومان؟؟؟؟"
-  if (currency === "USD") return "$"
-  return "?"
-}
+import type { Currency } from "./currency"
 
 interface WorkTimerStore {
   currency: Currency
@@ -57,6 +22,10 @@ interface WorkTimerStore {
   resetTimer: () => void
   getElapsedSeconds: () => number
   addElapsedToTotal: () => void
+
+  /** Target total time user aims to work per day, in seconds */
+  dailyTimeTarget: number
+  setDailyTimeTarget: (dailyTimeTarget: number) => void
 }
 
 export const useWorkTimerStore = create<WorkTimerStore>()(
@@ -94,7 +63,23 @@ export const useWorkTimerStore = create<WorkTimerStore>()(
         setTotalSeconds(totalSeconds + getElapsedSeconds())
         resetTimer()
       },
+
+      dailyTimeTarget: 5 * 60 * 60,
+      setDailyTimeTarget: dailyTimeTarget => set({ dailyTimeTarget }),
     }),
     { name: Keys.WorkTimer.Store },
   ),
 )
+
+export function useDailyProgress() {
+  const totalSeconds = useWorkTimerStore(s => s.totalSeconds)
+  const dailyTimeTarget = useWorkTimerStore(s => s.dailyTimeTarget)
+
+  if (dailyTimeTarget <= 0) return 0
+
+  const percentRaw = (totalSeconds / dailyTimeTarget) * 100
+  const percentMax100 = Math.min(percentRaw, 100)
+  const percentRound = Math.floor(percentMax100)
+
+  return percentRound
+}

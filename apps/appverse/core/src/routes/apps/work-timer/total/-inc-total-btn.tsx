@@ -8,7 +8,7 @@ export function IncTotalBtn() {
   return (
     <button
       type="button"
-      className={btnIcon({ size: "lg" })}
+      className={btnIcon({ size: "lg", theme: "glass" })}
       onClick={incTotalSeconds}
     >
       <PlusIcon size={32} />

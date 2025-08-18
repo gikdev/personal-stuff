@@ -8,7 +8,7 @@ export function DecTotalBtn() {
   return (
     <button
       type="button"
-      className={btnIcon({ size: "lg" })}
+      className={btnIcon({ size: "lg", theme: "glass" })}
       onClick={decTotalSeconds}
     >
       <MinusIcon size={32} />

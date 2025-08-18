@@ -5,8 +5,8 @@ import { btnIcon, page } from "#/shared/skins"
 import { WorkTimerBottomTabs } from "../-shared"
 import { ChangeTotalBtn } from "./-change-total-btn"
 import { DecTotalBtn } from "./-dec-total-btn"
+import { GoalTracker } from "./-goal-tracker"
 import { IncTotalBtn } from "./-inc-total-btn"
-import { TotalMoney } from "./-total-money"
 import { TotalTime } from "./-total-time"
 
 export const Route = createFileRoute("/apps/work-timer/total/")({
@@ -28,16 +28,8 @@ function RouteComponent() {
       <main className="flex flex-col flex-1 items-center justify-center gap-8 p-4">
         <div className="flex flex-col gap-8 items-center">
           <TotalTime />
-
-          <div className="flex w-full items-center justify-center gap-8">
-            <DecTotalBtn />
-
-            <ChangeTotalBtn />
-
-            <IncTotalBtn />
-          </div>
-
-          <TotalMoney />
+          <Controls />
+          <GoalTracker />
         </div>
       </main>
 
@@ -45,3 +37,11 @@ function RouteComponent() {
     </div>
   )
 }
+
+const Controls = () => (
+  <div className="flex w-full items-center justify-center gap-8">
+    <DecTotalBtn />
+    <ChangeTotalBtn />
+    <IncTotalBtn />
+  </div>
+)

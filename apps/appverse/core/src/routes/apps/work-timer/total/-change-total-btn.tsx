@@ -1,4 +1,4 @@
-import { ArrowsCounterClockwiseIcon } from "@phosphor-icons/react"
+import { PencilSimpleIcon } from "@phosphor-icons/react"
 import { btnIcon } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
@@ -25,10 +25,10 @@ export function ChangeTotalBtn() {
   return (
     <button
       type="button"
-      className={btnIcon({ size: "lg" })}
+      className={btnIcon({ size: "lg", theme: "glass" })}
       onClick={handleClick}
     >
-      <ArrowsCounterClockwiseIcon size={32} />
+      <PencilSimpleIcon size={32} />
     </button>
   )
 }

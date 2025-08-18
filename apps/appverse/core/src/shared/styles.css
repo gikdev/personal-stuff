@@ -93,7 +93,8 @@
   --text-title: 3rem;
   --text-title--line-height: 1;
 
-  --radius-sm-elements: 0.125rem;
-  --radius-md-elements: 0.25rem;
-  --radius-lg-elements: 0.5rem;
+  --radius-sm-elements: 0.25rem;
+  --radius-md-elements: 0.5rem;
+  --radius-lg-elements: 1rem;
+  --radius-xl-elements: 1.5rem;
 }

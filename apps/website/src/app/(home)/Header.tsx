@@ -14,7 +14,7 @@ export const Header = () => (
       alt=""
       width={256}
       height={256}
-      className="rounded-md-elements"
+      className="rounded-sm-elements"
       unoptimized
     />
 

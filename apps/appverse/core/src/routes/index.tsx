@@ -83,7 +83,7 @@ function AppItem({ Icon, title, disabled = false }: AppItemProps) {
 
   return (
     <div className={container}>
-      <div className="p-2 size-12 rounded-md-elements text-tusi-100 bg-tusi-600">
+      <div className="p-2 size-12 rounded-sm-elements text-tusi-100 bg-tusi-600">
         <Icon size={32} weight="fill" />
       </div>
 
