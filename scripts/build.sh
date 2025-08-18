@@ -16,12 +16,12 @@ cp -r ./dist ../../../dist/website/appverse
 cd ../../..
 
 # Build appverse core for desktop
-cd ./apps/appverse/core
-npm run build:desktop
-cp -r ./dist ../desktop/dist
+# cd ./apps/appverse/core
+# npm run build:desktop
+# cp -r ./dist ../desktop/dist
 
-cd ..
+# cd ..
 
 # Build the desktop
-cd ./desktop
-npm run make
+# cd ./desktop
+# npm run make
