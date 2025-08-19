@@ -1,4 +1,5 @@
 import {
+  HandsPrayingIcon,
   type Icon,
   ListChecksIcon,
   NumberCircleOneIcon,
@@ -34,6 +35,11 @@ export const apps: App[] = [
     id: "budget",
     title: "بودجه",
     Icon: TipJarIcon,
+  },
+  {
+    id: "rakaat",
+    title: "رکعت",
+    Icon: HandsPrayingIcon,
   },
   {
     id: "not-found",

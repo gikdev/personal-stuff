@@ -37,6 +37,30 @@ export const btnIcon = cva({
   },
 })
 
+export const btn = cva({
+  base: `
+    border-none flex items-center justify-center
+    active:scale-95 disabled:active:scale-100
+    cursor-pointer disabled:cursor-not-allowed
+  `,
+  variants: {
+    size: {
+      md: "rounded-sm-elements py-1 gap-2 px-6 min-h-14",
+    },
+    colors: {
+      brand: `
+        text-tusi-100 disabled:text-tusi-400
+        bg-brand-600 disabled:bg-tusi-600 
+        hover:bg-brand-700 disabled:hover:bg-tusi-600
+      `,
+    },
+  },
+  defaultVariants: {
+    colors: "brand",
+    size: "md",
+  },
+})
+
 export const select = cva({
   base: `
     py-2 px-4 font-[inherit] rounded-sm-elements
