@@ -9,6 +9,7 @@ import {
   createFormHook,
   createFormHookContexts,
 } from "@tanstack/react-form"
+import type { VariantProps } from "cva"
 import { type ComponentProps, useId } from "react"
 import * as skins from "#/shared/skins"
 
@@ -45,7 +46,7 @@ function NumberWithBtns({ label }: NumberWithBtnsProps) {
     <div className={skins.labeler()}>
       <label htmlFor={id}>{label}</label>
 
-      <div className={skins.elementGroup()}>
+      <div className={skins.elementGroup({ className: "h-14" })}>
         <button
           type="button"
           onClick={() => field.handleChange(field.state.value - 1)}
@@ -134,18 +135,28 @@ function ErrorMsg({ field }: { field: AnyFieldApi }) {
 // #region <SubmitBtn />
 interface SubmitBtnProps {
   Icon: Icon
-  title: string
+  title: string | null
   onClick?: () => void
   type?: ComponentProps<"button">["type"]
+  color?: VariantProps<typeof skins.btn>["color"]
+  className?: string
 }
 
-function SubmitBtn({ Icon, title, onClick, type }: SubmitBtnProps) {
+function SubmitBtn({
+  Icon,
+  title,
+  onClick,
+  type,
+  color = "neutral",
+  className = "",
+}: SubmitBtnProps) {
   const form = useFormContext()
 
   return (
     <form.Subscribe selector={s => [s.canSubmit, s.isSubmitting]}>
       {([canSubmit, isSubmitting]) => {
         const FinalIcon = isSubmitting ? CircleNotchIcon : Icon
+        const showTitle = title !== null
         const finalTitle = isSubmitting ? "در حال بارگذاری..." : title
         const finalType = type || "button"
         const defaultClickHandler = () => form.handleSubmit()
@@ -156,10 +167,13 @@ function SubmitBtn({ Icon, title, onClick, type }: SubmitBtnProps) {
             type={finalType}
             onClick={finalClickHandler}
             disabled={!canSubmit || isSubmitting}
-            className={skins.btn({ colors: "brand", className: "w-full" })}
+            className={skins.btn({ color, className })}
           >
-            <FinalIcon size={24} weight="fill" />
-            <span>{finalTitle}</span>
+            <FinalIcon
+              size={24}
+              weight={color === "brand" ? "fill" : "regular"}
+            />
+            {showTitle && <span>{finalTitle}</span>}
           </button>
         )
       }}

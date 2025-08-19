@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
 import { btnIcon, page } from "#/shared/skins"
 import { WorkTimerBottomTabs } from "../-shared"
-import { ChangeTotalBtn } from "./-change-total-btn"
+import { ChangeTotal } from "./-change-total"
 import { DecTotalBtn } from "./-dec-total-btn"
 import { GoalTracker } from "./-goal-tracker"
 import { IncTotalBtn } from "./-inc-total-btn"
@@ -41,7 +41,7 @@ function RouteComponent() {
 const Controls = () => (
   <div className="flex w-full items-center justify-center gap-8">
     <DecTotalBtn />
-    <ChangeTotalBtn />
+    <ChangeTotal />
     <IncTotalBtn />
   </div>
 )

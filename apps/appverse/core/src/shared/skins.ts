@@ -40,23 +40,30 @@ export const btnIcon = cva({
 export const btn = cva({
   base: `
     border-none flex items-center justify-center
-    active:scale-95 disabled:active:scale-100
-    cursor-pointer disabled:cursor-not-allowed
+
+    active:scale-95  disabled:active:scale-100
+    cursor-pointer   disabled:cursor-not-allowed
   `,
   variants: {
     size: {
       md: "rounded-sm-elements py-1 gap-2 px-6 min-h-14",
     },
-    colors: {
+    color: {
+      neutral: `
+        text-tusi-400       disabled:text-tusi-400
+        hover:text-tusi-100 disabled:hover:text-tusi-400
+        bg-tusi-800         disabled:bg-tusi-800 
+        hover:bg-tusi-700   disabled:hover:bg-tusi-800
+      `,
       brand: `
-        text-tusi-100 disabled:text-tusi-400
-        bg-brand-600 disabled:bg-tusi-600 
+        text-tusi-100      disabled:text-tusi-400
+        bg-brand-600       disabled:bg-tusi-600 
         hover:bg-brand-700 disabled:hover:bg-tusi-600
       `,
     },
   },
   defaultVariants: {
-    colors: "brand",
+    color: "neutral",
     size: "md",
   },
 })
@@ -85,5 +92,5 @@ export const labeler = cva({
 export const errorMsg = () => "text-danger-400 text-body-sm"
 
 export const elementGroup = cva({
-  base: "flex h-14 gap-1 rounded-md-elements overflow-hidden w-full",
+  base: "flex gap-1 rounded-md-elements overflow-hidden w-full",
 })

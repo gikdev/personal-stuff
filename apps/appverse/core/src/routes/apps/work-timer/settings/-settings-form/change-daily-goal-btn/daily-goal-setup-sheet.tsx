@@ -56,7 +56,12 @@ export function DailyGoalSetupSheet({ onClose }: DailyGoalSetupSheetProps) {
         </Sheet.Content>
 
         <Sheet.Footer>
-          <form.SubmitBtn Icon={MathOperationsIcon} title="محاسبه هدف روزانه" />
+          <form.SubmitBtn
+            Icon={MathOperationsIcon}
+            title="محاسبه هدف روزانه"
+            className="w-full"
+            color="brand"
+          />
         </Sheet.Footer>
       </form.AppForm>
     </Sheet.Container>
