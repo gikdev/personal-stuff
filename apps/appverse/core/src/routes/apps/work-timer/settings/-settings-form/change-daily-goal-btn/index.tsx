@@ -9,24 +9,14 @@ function _ChangeDailyGoalBtn() {
 
   return (
     <>
-      <EditBtn onClick={() => setOpen(true)} />
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className={skins.btnIcon({ size: "inputish", theme: "inputish" })}
+      >
+        <PencilSimpleIcon size={24} />
+      </button>
       {isOpen && <DailyGoalSetupSheet onClose={() => setOpen(false)} />}
     </>
-  )
-}
-
-interface EditBtnProps {
-  onClick?: () => void
-}
-
-function EditBtn({ onClick }: EditBtnProps) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={skins.btnIcon({ size: "inputish", theme: "inputish" })}
-    >
-      <PencilSimpleIcon size={24} />
-    </button>
   )
 }

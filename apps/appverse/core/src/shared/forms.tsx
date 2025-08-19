@@ -116,8 +116,8 @@ function SimpleNumber({ label }: SimpleNumberProps) {
 function convertErorrsToString(err: unknown) {
   if (typeof err === "string") return err
   if (typeof err === "object" && err != null) {
-    if ("msg" in err && typeof err.msg ==="string") return err.msg
-    if ("message" in err && typeof err.message ==="string") return err.message
+    if ("msg" in err && typeof err.msg === "string") return err.msg
+    if ("message" in err && typeof err.message === "string") return err.message
   }
 
   return "یه مشکلی پیش اومده"
