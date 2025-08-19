@@ -37,7 +37,7 @@ export const apps: App[] = [
     Icon: TipJarIcon,
   },
   {
-    id: "rakaat",
+    id: "rakat",
     title: "رکعت",
     Icon: HandsPrayingIcon,
   },
