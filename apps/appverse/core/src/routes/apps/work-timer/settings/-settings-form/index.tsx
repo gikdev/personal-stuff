@@ -76,7 +76,7 @@ function DailyGoalInput() {
           dir="ltr"
           className={inputStyle}
           readOnly
-          defaultValue={target}
+          value={target}
         />
       </div>
     </div>
