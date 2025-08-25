@@ -1,4 +1,4 @@
-import { MathOperationsIcon, MinusIcon, PlusIcon } from "@phosphor-icons/react"
+import { MinusIcon, PencilSimpleIcon, PlusIcon } from "@phosphor-icons/react"
 import { z } from "zod/v4"
 import { Sheet } from "#/components/sheet"
 import { useWorkTimerStore } from "#/routes/apps/work-timer/-shared"
@@ -105,8 +105,8 @@ export function ChangeTotalSheet({ onClose }: ChangeTotalSheetProps) {
             </div>
 
             <form.SubmitBtn
-              Icon={MathOperationsIcon}
-              title="محاسبه هدف روزانه"
+              Icon={PencilSimpleIcon}
+              title="تغییر مجموع کار"
               onClick={() => form.handleSubmit({ submitAction: "change" })}
               className="w-full"
               color="brand"

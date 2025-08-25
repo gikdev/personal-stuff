@@ -1,10 +1,8 @@
 import { create } from "zustand"
 
-type RakatCount = 2 | 3 | 4
-
 interface RakatStore {
-  rakatCount: RakatCount | null
-  setRakatCount: (rakatCount: RakatCount | null) => void
+  rakatCount: number
+  setRakatCount: (rakatCount: number) => void
 
   currentSajde: number
   incCurrentSajde: () => void
@@ -13,11 +11,16 @@ interface RakatStore {
 }
 
 export const useRakatStore = create<RakatStore>()(set => ({
-  rakatCount: null,
+  rakatCount: 0,
   setRakatCount: rakatCount => set({ rakatCount, currentSajde: 0 }),
 
-  currentSajde: 0,
-  incCurrentSajde: () => set(s => ({ currentSajde: s.currentSajde + 1 })),
+  currentSajde: 1,
+  incCurrentSajde: () =>
+    set(s => {
+      const final = s.currentSajde + 1
 
-  reset: () => set({ rakatCount: null, currentSajde: 0 }),
+      return { currentSajde: final > 8 ? 8 : final }
+    }),
+
+  reset: () => set({ rakatCount: 0, currentSajde: 0 }),
 }))

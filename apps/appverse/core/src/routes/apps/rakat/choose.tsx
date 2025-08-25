@@ -4,7 +4,7 @@ import {
   HouseIcon,
   RadioButtonIcon,
 } from "@phosphor-icons/react"
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router"
+import { createFileRoute, Link } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
 import { cx } from "#/shared/cva.config"
 import * as skins from "#/shared/skins"
@@ -98,22 +98,18 @@ function RakatOption({ title, isActive = false, onClick }: RakatOptionProps) {
 }
 
 function StartBtn() {
-  const navigate = useNavigate()
   const rakatCount = useRakatStore(s => s.rakatCount)
 
   const isRakatCountValid = rakatCount != null
 
-  const handleClick = () => navigate({ to: "/apps/rakat/pray" })
-
   return (
-    <button
-      type="button"
-      onClick={handleClick}
+    <Link
+      to="/apps/rakat/pray"
       disabled={!isRakatCountValid}
       className={skins.btn({ color: "brand", className: "w-full" })}
     >
       <HandsPrayingIcon size={24} weight="fill" />
       <span>شروع</span>
-    </button>
+    </Link>
   )
 }
