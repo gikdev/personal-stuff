@@ -1,5 +1,6 @@
 import {
   HandsPrayingIcon,
+  HurricaneIcon,
   type Icon,
   ListChecksIcon,
   NumberCircleOneIcon,
@@ -22,24 +23,32 @@ export const apps: App[] = [
     Icon: TimerIcon,
   },
   {
-    id: "one-thing",
-    title: "یه چیز",
-    Icon: NumberCircleOneIcon,
+    id: "rakat",
+    title: "رکعت",
+    Icon: HandsPrayingIcon,
+  },
+  {
+    id: "nebula",
+    title: "نبیولا",
+    Icon: HurricaneIcon,
   },
   {
     id: "todos",
     title: "کارها",
     Icon: ListChecksIcon,
+    disabled: true,
+  },
+  {
+    id: "one-thing",
+    title: "یه چیز",
+    Icon: NumberCircleOneIcon,
+    disabled: true,
   },
   {
     id: "budget",
     title: "بودجه",
     Icon: TipJarIcon,
-  },
-  {
-    id: "rakat",
-    title: "رکعت",
-    Icon: HandsPrayingIcon,
+    disabled: true,
   },
   {
     id: "not-found",

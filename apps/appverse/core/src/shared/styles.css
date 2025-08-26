@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @import "../assets/fonts/Lahzeh.css";
+@import "../assets/fonts/Vazir-Code-Hack.css";
 
 @theme inline {
   --font-main: "Lahzeh Variable", "Vazirmatn", sans-serif;
+  --font-code: "Vazir Code Hack", "Vazirmatn", sans-serif;
 
   --color-tusi-50: var(--color-zinc-50);
   --color-tusi-100: var(--color-zinc-100);
@@ -97,4 +99,17 @@
   --radius-md-elements: 0.5rem;
   --radius-lg-elements: 1rem;
   --radius-xl-elements: 1.5rem;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }

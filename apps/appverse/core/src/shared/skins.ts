@@ -15,6 +15,7 @@ export const btnIcon = cva({
       lg: "size-16 p-4 rounded-sm-elements", // icon size = 32
       xl: "size-24 p-6 rounded-xl-elements", // icon size = 48
       inputish: "size-14 p-1 rounded-sm-elements", // icon size = 24
+      iconDesktop: "size-8 p-1 rounded-sm-elements", // icon size = 24
     },
     theme: {
       glass: `
