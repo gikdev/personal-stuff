@@ -7,6 +7,8 @@ import { StrictMode } from "react"
 import ReactDOM from "react-dom/client"
 import "./shared/styles.css"
 
+import { GeneralError } from "./routes/-general-error"
+import { NotFound } from "./routes/-not-found"
 import { Pending } from "./routes/-pending"
 import { routeTree } from "./routeTree.gen"
 
@@ -16,6 +18,8 @@ const router = createRouter({
   routeTree,
   history: hashHistory,
   defaultPendingComponent: Pending,
+  defaultNotFoundComponent: NotFound,
+  defaultErrorComponent: GeneralError,
 })
 
 declare module "@tanstack/react-router" {

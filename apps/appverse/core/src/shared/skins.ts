@@ -44,6 +44,8 @@ export const btn = cva({
 
     active:scale-95  disabled:active:scale-100
     cursor-pointer   disabled:cursor-not-allowed
+
+    [&_svg]:text-[1.5em]
   `,
   variants: {
     size: {
