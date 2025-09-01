@@ -1,6 +1,6 @@
 import { ArrowClockwiseIcon, HeadsetIcon } from "@phosphor-icons/react"
 import { parseError } from "#/helpers"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 
 interface GeneralErrorProps {
   reset: () => void

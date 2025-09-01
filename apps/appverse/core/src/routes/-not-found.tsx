@@ -1,6 +1,6 @@
 import { CaretRightIcon } from "@phosphor-icons/react"
 import { Link } from "@tanstack/react-router"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 
 export function NotFound() {
   return (
