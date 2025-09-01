@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-form"
 import type { VariantProps } from "cva"
 import { type ComponentProps, useId } from "react"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 
 export const { fieldContext, formContext, useFieldContext, useFormContext } =
   createFormHookContexts()

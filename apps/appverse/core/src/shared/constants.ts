@@ -5,4 +5,7 @@ export const Keys = {
   Nebula: {
     Store: "nebula-store",
   },
+  Namoratab: {
+    Store: "nebula-store",
+  },
 }

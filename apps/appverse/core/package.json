@@ -11,19 +11,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^2.0.23",
+    "@ai-sdk/openai-compatible": "^1.0.13",
+    "@ai-sdk/react": "^2.0.29",
     "@phosphor-icons/react": "^2.1.10",
     "@reactuses/core": "^6.0.6",
     "@tailwindcss/vite": "^4.1.11",
     "@tanstack/react-form": "^1.19.1",
+    "@tanstack/react-query": "^5.85.6",
     "@tanstack/react-router": "^1.131.8",
     "@tanstack/react-router-devtools": "^1.131.8",
+    "ai": "^5.0.29",
     "cva": "^1.0.0-beta.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
     "vite-tsconfig-paths": "^5.1.4",
-    "zod": "^4.0.17",
+    "zod": "^4.1.5",
     "zustand": "^5.0.7"
   },
   "devDependencies": {

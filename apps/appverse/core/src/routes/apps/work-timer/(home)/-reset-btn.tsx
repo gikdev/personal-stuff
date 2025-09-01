@@ -1,5 +1,5 @@
 import { ArrowUUpRightIcon } from "@phosphor-icons/react"
-import { btnIcon } from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
 export function ResetBtn() {
@@ -8,7 +8,7 @@ export function ResetBtn() {
   return (
     <button
       type="button"
-      className={btnIcon({ size: "lg" })}
+      className={skins.btnIcon({ size: "lg" })}
       onClick={resetTimer}
     >
       <ArrowUUpRightIcon size={32} />

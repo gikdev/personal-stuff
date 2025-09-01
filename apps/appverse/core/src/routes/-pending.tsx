@@ -1,5 +1,5 @@
 import { SquareIcon } from "@phosphor-icons/react"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 
 export function Pending() {
   return (

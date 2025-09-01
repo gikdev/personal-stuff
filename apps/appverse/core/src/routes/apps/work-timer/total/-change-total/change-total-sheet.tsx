@@ -3,7 +3,7 @@ import { z } from "zod/v4"
 import { Sheet } from "#/components/sheet"
 import { useWorkTimerStore } from "#/routes/apps/work-timer/-shared"
 import { useAppForm } from "#/shared/forms"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 
 const ChangeTotalSchema = z.object({
   hours: z

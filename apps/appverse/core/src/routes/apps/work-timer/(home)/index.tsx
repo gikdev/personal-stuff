@@ -1,7 +1,7 @@
 import { HouseIcon } from "@phosphor-icons/react"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
-import { btnIcon, page } from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { WorkTimerBottomTabs } from "../-shared"
 import { PlayStopBtn } from "./-play-stop-btn"
 import { ResetBtn } from "./-reset-btn"
@@ -14,11 +14,11 @@ export const Route = createFileRoute("/apps/work-timer/(home)/")({
 
 function RouteComponent() {
   return (
-    <div className={page()}>
+    <div className={skins.page()}>
       <TopAppBar
         title="تایمر کار"
         startingStuff={
-          <Link to="/" className={btnIcon()}>
+          <Link to="/" className={skins.btnIcon()}>
             <HouseIcon size={32} />
           </Link>
         }

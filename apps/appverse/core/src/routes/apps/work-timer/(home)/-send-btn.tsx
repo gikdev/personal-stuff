@@ -1,5 +1,5 @@
 import { PaperPlaneTiltIcon } from "@phosphor-icons/react"
-import { btnIcon } from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
 export function SendBtn() {
@@ -8,7 +8,7 @@ export function SendBtn() {
   return (
     <button
       type="button"
-      className={btnIcon({ size: "lg" })}
+      className={skins.btnIcon({ size: "lg" })}
       onClick={addElapsedToTotal}
     >
       <PaperPlaneTiltIcon size={32} />

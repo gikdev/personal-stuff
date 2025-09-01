@@ -6,7 +6,7 @@ import type { ComponentProps } from "react"
 import { useRef } from "react"
 import { type App, apps } from "#/data/apps"
 import { cx } from "#/shared/cva.config"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import config from "../../config.json"
 
 export const Route = createFileRoute("/")({

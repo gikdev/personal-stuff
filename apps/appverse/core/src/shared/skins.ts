@@ -1,13 +1,14 @@
 import { cva } from "./cva.config"
 
-export const page = cva({ base: "flex flex-col h-dvh" })
+const page = cva({ base: "flex flex-col h-dvh" })
 
-export const btnIcon = cva({
+const btnIcon = cva({
   base: `
     flex items-center justify-center
     cursor-pointer disabled:cursor-not-allowed
     disabled:opacity-50 
     active:scale-95
+    [&_svg]:text-[1.5em]
   `,
   variants: {
     size: {
@@ -38,14 +39,34 @@ export const btnIcon = cva({
   },
 })
 
-export const btn = cva({
+const btn = cva({
   base: `
     border-none flex items-center justify-center
 
-    active:scale-95  disabled:active:scale-100
-    cursor-pointer   disabled:cursor-not-allowed
+    active:scale-95      disabled:active:scale-100
+    cursor-pointer       disabled:cursor-not-allowed
+    [&_svg]:text-[1.2em] disabled:opacity-50
   `,
   variants: {
+    mode: {
+      contained: null,
+      outline: null,
+      text: `
+        bg-transparent
+        disabled:text-tusi-400
+        disabled:hover:text-tusi-400
+        disabled:bg-tusi-800 
+        disabled:hover:bg-tusi-800
+      `,
+    },
+    intent: {
+      neutral: null,
+      danger: null,
+    },
+    isIcon: {
+      false: null,
+      true: null,
+    },
     size: {
       md: "rounded-sm-elements py-1 gap-2 px-6 min-h-14",
     },
@@ -63,13 +84,37 @@ export const btn = cva({
       `,
     },
   },
+  compoundVariants: [
+    {
+      isIcon: true,
+      size: "md",
+      className: "p-1 w-14",
+    },
+    {
+      intent: "neutral",
+      mode: "text",
+      className: `
+        text-tusi-400
+        hover:text-tusi-300
+        hover:bg-tusi-400/10
+      `,
+    },
+    {
+      intent: "danger",
+      mode: "text",
+      className: `
+        text-danger-400
+        hover:text-danger-300
+        hover:bg-danger-400/10
+      `,
+    },
+  ],
   defaultVariants: {
-    color: "neutral",
     size: "md",
   },
 })
 
-export const select = cva({
+const select = cva({
   base: `
     py-2 px-4 font-[inherit] rounded-sm-elements
     bg-tusi-800 outline-2 outline-transparent min-h-14
@@ -77,21 +122,41 @@ export const select = cva({
   `,
 })
 
-export const input = cva({
+const input = cva({
   base: `
     py-2 px-4 font-[inherit] rounded-sm-elements
     bg-tusi-800 outline-none border-b-2 min-h-14
     border-transparent focus:border-brand-500
     text-tusi-100
   `,
+  variants: {
+    isMultiline: {
+      false: null,
+      true: "min-h-24 py-4",
+    },
+  },
+  defaultVariants: {
+    isMultiline: false,
+  },
 })
 
-export const labeler = cva({
+const labeler = cva({
   base: "flex flex-col gap-2 w-full",
 })
 
-export const errorMsg = () => "text-danger-400 text-body-sm"
+const errorMsg = () => "text-danger-400 text-body-sm"
 
-export const elementGroup = cva({
+const elementGroup = cva({
   base: "flex gap-1 rounded-md-elements overflow-hidden w-full",
 })
+
+export const skins = {
+  page,
+  btnIcon,
+  btn,
+  select,
+  input,
+  labeler,
+  errorMsg,
+  elementGroup,
+}

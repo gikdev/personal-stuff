@@ -7,7 +7,7 @@ import {
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
 import { cx } from "#/shared/cva.config"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { useRakatStore } from "./-shared/store"
 
 export const Route = createFileRoute("/apps/rakat/choose")({

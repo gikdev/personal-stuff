@@ -5,6 +5,7 @@ import {
   ListChecksIcon,
   NumberCircleOneIcon,
   SquareIcon,
+  TextIndentIcon,
   TimerIcon,
   TipJarIcon,
 } from "@phosphor-icons/react"
@@ -31,6 +32,11 @@ export const apps: App[] = [
     id: "nebula",
     title: "نبیولا",
     Icon: HurricaneIcon,
+  },
+  {
+    id: "namoratab",
+    title: "نامرتب",
+    Icon: TextIndentIcon,
   },
   {
     id: "todos",

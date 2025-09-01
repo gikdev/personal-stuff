@@ -1,7 +1,7 @@
 import { HouseIcon } from "@phosphor-icons/react"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
-import { btnIcon, page } from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { WorkTimerBottomTabs } from "../-shared"
 import { ChangeTotal } from "./-change-total"
 import { DecTotalBtn } from "./-dec-total-btn"
@@ -15,11 +15,11 @@ export const Route = createFileRoute("/apps/work-timer/total/")({
 
 function RouteComponent() {
   return (
-    <div className={page()}>
+    <div className={skins.page()}>
       <TopAppBar
         title="مجموع کار"
         startingStuff={
-          <Link to="/" className={btnIcon()}>
+          <Link to="/" className={skins.btnIcon()}>
             <HouseIcon size={32} />
           </Link>
         }

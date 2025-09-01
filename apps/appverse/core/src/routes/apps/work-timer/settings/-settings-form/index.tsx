@@ -1,5 +1,5 @@
 import { useId } from "react"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { TimeFormatter } from "#/shared/utils"
 import { type Currency, useWorkTimerStore } from "../../-shared"
 import { ChangeDailyGoalBtn } from "./change-daily-goal-btn"

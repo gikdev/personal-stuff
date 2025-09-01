@@ -8,7 +8,7 @@ import {
 import { useFullscreen } from "@reactuses/core"
 import { Link } from "@tanstack/react-router"
 import { useRef } from "react"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { useNebulaStore } from "./-shared"
 
 export const BottomBar = () => (

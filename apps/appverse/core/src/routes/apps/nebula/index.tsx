@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { BottomBar } from "./-bottom-bar"
 import { ContentArea } from "./-content-area"
 import { TopBar } from "./-top-bar"

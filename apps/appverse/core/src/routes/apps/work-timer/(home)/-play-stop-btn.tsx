@@ -1,5 +1,5 @@
 import { PlayIcon, StopIcon } from "@phosphor-icons/react"
-import { btnIcon } from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
 export function PlayStopBtn() {
@@ -13,7 +13,7 @@ export function PlayStopBtn() {
   return (
     <button
       type="button"
-      className={btnIcon({ size: "xl", theme: "brand" })}
+      className={skins.btnIcon({ size: "xl", theme: "brand" })}
       onClick={isPlaying ? end : start}
     >
       <Icon size={48} weight="fill" />

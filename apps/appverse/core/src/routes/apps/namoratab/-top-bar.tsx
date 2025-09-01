@@ -1,15 +1,14 @@
-import { DownloadSimpleIcon, HouseIcon } from "@phosphor-icons/react"
+import { HouseIcon, InfoIcon } from "@phosphor-icons/react"
 import { Link } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
 import { skins } from "#/shared/skins"
-import { useNebulaStore } from "./-shared"
+import { useNamoratabStore } from "./-shared"
 
 export const TopBar = () => (
   <TopAppBar
-    title="نبیولا"
-    className="md:hidden"
+    title="نامرتب"
     startingStuff={<GoHomeBtn />}
-    endingStuff={<DownloadContentBtn />}
+    endingStuff={<InfoBtn />}
   />
 )
 
@@ -19,12 +18,12 @@ const GoHomeBtn = () => (
   </Link>
 )
 
-const DownloadContentBtn = () => (
+const InfoBtn = () => (
   <button
     type="button"
     className={skins.btnIcon()}
-    onClick={() => useNebulaStore.getState().downloadContent()}
+    onClick={() => useNamoratabStore.getState().setInfoModalOpen(true)}
   >
-    <DownloadSimpleIcon size={32} />
+    <InfoIcon size={32} />
   </button>
 )

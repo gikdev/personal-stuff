@@ -1,5 +1,5 @@
 import { PlusIcon } from "@phosphor-icons/react"
-import { btnIcon } from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
 export function IncTotalBtn() {
@@ -8,7 +8,7 @@ export function IncTotalBtn() {
   return (
     <button
       type="button"
-      className={btnIcon({ size: "lg", theme: "glass" })}
+      className={skins.btnIcon({ size: "lg", theme: "glass" })}
       onClick={incTotalSeconds}
     >
       <PlusIcon size={32} />

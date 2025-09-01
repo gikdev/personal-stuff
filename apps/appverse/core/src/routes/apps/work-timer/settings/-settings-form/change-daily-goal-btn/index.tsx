@@ -1,6 +1,6 @@
 import { PencilSimpleIcon } from "@phosphor-icons/react"
 import { memo, useState } from "react"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { DailyGoalSetupSheet } from "./daily-goal-setup-sheet"
 
 export const ChangeDailyGoalBtn = memo(_ChangeDailyGoalBtn)

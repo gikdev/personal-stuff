@@ -3,7 +3,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router"
 import type { ReactNode } from "react"
 import { TopAppBar } from "#/components/top-app-bar"
 import { cx } from "#/shared/cva.config"
-import * as skins from "#/shared/skins"
+import { skins } from "#/shared/skins"
 import { toPersianDigits } from "#/shared/utils"
 import { useRakatStore } from "./-shared/store"
 

@@ -1,6 +1,6 @@
 // import { CircleNotchIcon, PencilSimpleIcon } from "@phosphor-icons/react"
 // import { useForm } from "@tanstack/react-form"
-// import * as skins from "#/shared/skins"
+// import { skins } from "#/shared/skins"
 // import {
 //   type Currency,
 //   type Settings,
