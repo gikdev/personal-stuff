@@ -9,7 +9,7 @@ import { TopAppBar } from "#/components/top-app-bar"
 import { skins } from "#/shared/skins"
 import { WorkTimerBottomTabs } from "./-shared"
 
-export const Route = createFileRoute("/apps/work-timer")({
+export const Route = createFileRoute("/_authenticated/apps/work-timer")({
   component: RouteComponent,
 })
 

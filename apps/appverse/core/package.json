@@ -23,6 +23,7 @@
     "@tanstack/react-router-devtools": "^1.131.8",
     "ai": "^5.0.29",
     "cva": "^1.0.0-beta.4",
+    "js-sha512": "^0.9.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-haiku": "^2.4.1",

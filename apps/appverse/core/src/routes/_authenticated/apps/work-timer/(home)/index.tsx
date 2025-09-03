@@ -4,12 +4,14 @@ import { ResetBtn } from "./-reset-btn"
 import { SendBtn } from "./-send-btn"
 import { TimerTime } from "./-timer-time"
 
-export const Route = createFileRoute("/apps/work-timer/(home)/")({
-  component: RouteComponent,
-  staticData: {
-    appTitle: "تایمر کار",
+export const Route = createFileRoute("/_authenticated/apps/work-timer/(home)/")(
+  {
+    component: RouteComponent,
+    staticData: {
+      appTitle: "تایمر کار",
+    },
   },
-})
+)
 
 function RouteComponent() {
   return (

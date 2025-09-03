@@ -1,8 +1,8 @@
 import { MathOperationsIcon } from "@phosphor-icons/react"
 import { z } from "zod/v4"
 import { Sheet } from "#/components/sheet"
-import { useWorkTimerStore } from "#/routes/apps/work-timer/-shared"
 import { useAppForm } from "#/shared/forms"
+import { useWorkTimerStore } from "../../../-shared"
 
 const DailyGoalSetupSchema = z.object({
   daysPerMonth: z

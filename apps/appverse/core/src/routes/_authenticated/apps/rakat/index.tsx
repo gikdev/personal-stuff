@@ -1,7 +1,7 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router"
 import { useRakatStore } from "./-store"
 
-export const Route = createFileRoute("/apps/rakat/")({
+export const Route = createFileRoute("/_authenticated/apps/rakat/")({
   component: RouteComponent,
 })
 

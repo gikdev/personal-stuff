@@ -3,7 +3,7 @@ import { createFileRoute, Link, Outlet } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
 import { skins } from "#/shared/skins"
 
-export const Route = createFileRoute("/apps/rakat")({
+export const Route = createFileRoute("/_authenticated/apps/rakat")({
   component: RouteComponent,
 })
 

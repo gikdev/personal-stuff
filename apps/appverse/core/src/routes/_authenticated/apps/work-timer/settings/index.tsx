@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { SettingsForm } from "./-settings-form"
 
-export const Route = createFileRoute("/apps/work-timer/settings/")({
+export const Route = createFileRoute(
+  "/_authenticated/apps/work-timer/settings/",
+)({
   component: RouteComponent,
   staticData: {
     appTitle: "تنظیمات",

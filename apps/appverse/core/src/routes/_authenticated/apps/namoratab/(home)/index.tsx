@@ -4,7 +4,7 @@ import { ContentInput } from "./-content-input"
 import { OrganizeBtn } from "./-organize-btn"
 import { TopBar } from "./-top-bar"
 
-export const Route = createFileRoute("/apps/namoratab/(home)/")({
+export const Route = createFileRoute("/_authenticated/apps/namoratab/(home)/")({
   component: RouteComponent,
 })
 

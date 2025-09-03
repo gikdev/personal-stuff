@@ -4,7 +4,7 @@ import { BottomBar } from "./-bottom-bar"
 import { ContentArea } from "./-content-area"
 import { TopBar } from "./-top-bar"
 
-export const Route = createFileRoute("/apps/nebula/")({
+export const Route = createFileRoute("/_authenticated/apps/nebula/")({
   component: RouteComponent,
 })
 

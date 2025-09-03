@@ -5,7 +5,7 @@ import { cx } from "#/shared/cva.config"
 import { skins } from "#/shared/skins"
 import { useRakatStore } from "./-store"
 
-export const Route = createFileRoute("/apps/rakat/pray")({
+export const Route = createFileRoute("/_authenticated/apps/rakat/pray")({
   component: RouteComponent,
 })
 

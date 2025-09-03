@@ -5,7 +5,7 @@ import { GoalTracker } from "./-goal-tracker"
 import { IncTotalBtn } from "./-inc-total-btn"
 import { TotalTime } from "./-total-time"
 
-export const Route = createFileRoute("/apps/work-timer/total/")({
+export const Route = createFileRoute("/_authenticated/apps/work-timer/total/")({
   component: RouteComponent,
   staticData: {
     appTitle: "مجموع کار",

@@ -7,9 +7,9 @@ import { useRef } from "react"
 import { type App, apps } from "#/data/apps"
 import { cx } from "#/shared/cva.config"
 import { skins } from "#/shared/skins"
-import config from "../../config.json"
+import config from "../../../config.json"
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_authenticated/")({
   component: Index,
 })
 
@@ -60,7 +60,7 @@ function mapApp(app: App) {
     </div>
   ) : (
     <Link
-      to={`/apps/${app.id}` as ComponentProps<typeof Link>["to"]}
+      to={`/apps/${app.id}` as ComponentProps<typeof Link>[`to`]}
       key={key}
       className=""
     >
