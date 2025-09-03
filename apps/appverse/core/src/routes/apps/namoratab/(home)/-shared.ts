@@ -9,9 +9,6 @@ interface NamoratabStore {
   content: string
   setContent: (content: string) => void
 
-  isInfoModalOpen: boolean
-  setInfoModalOpen: (isInfoModalOpen: boolean) => void
-
   reset: () => void
 }
 
@@ -21,9 +18,6 @@ export const useNamoratabStore = create<NamoratabStore>()(
       content: "",
       setContent: content => set({ content }),
 
-      isInfoModalOpen: false,
-      setInfoModalOpen: isInfoModalOpen => set({ isInfoModalOpen }),
-
       reset: () => set({ content: "" }),
     }),
     { name: Keys.Namoratab.Store },
@@ -32,9 +26,8 @@ export const useNamoratabStore = create<NamoratabStore>()(
 
 const model = createOpenAICompatible({
   name: "My Gemini 2.0 Flash",
-  baseURL: "https://ai.liara.ir/api/v1/68b4cf8b492ba519fe1bcf91",
-  apiKey:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGYwZTZhZTk5ZDJjZTA2MWYyYjliMTYiLCJ0eXBlIjoiYXV0aCIsImlhdCI6MTc1Njc1MzI1MH0.p5d1gRHbMghtyWfEuiggZ2hC3fWibcvFDAHfnvKJnZc",
+  baseURL: import.meta.env.VITE_BASE_URL,
+  apiKey: import.meta.env.VITE_API_KEY,
 }).chatModel("google/gemini-2.0-flash-001")
 
 export const useOrganizeWithAi = () =>
@@ -50,7 +43,6 @@ export const useOrganizeWithAi = () =>
         Use emoji naturally.
         Write all Persian words using correct dictation with proper half-spaces 
         (for example: می‌بینید instead of میبینید).
-
 
         Example output:
         توی این مدت چند تا پروژه واقعی

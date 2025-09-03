@@ -5,22 +5,6 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "[!a]*/**": true,
-    "a[!p]*/**": true,
-    "ap[!p]*/**": true,
-    "app[!s]*/**": true,
-    "apps/[!a]*/**": true,
-    "apps/a[!p]*/**": true,
-    "apps/ap[!p]*/**": true,
-    "apps/app[!v]*/**": true,
-    "apps/appv[!e]*/**": true,
-    "apps/appve[!r]*/**": true,
-    "apps/appver[!s]*/**": true,
-    "apps/appvers[!e]*/**": true,
-    "apps/appverse/[!c]*/**": true,
-    "apps/appverse/c[!o]*/**": true,
-    "apps/appverse/co[!r]*/**": true,
-    "apps/appverse/cor[!e]*/**": true
+    "**/Thumbs.db": true
   }
 }

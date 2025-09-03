@@ -6,6 +6,6 @@ export const Keys = {
     Store: "nebula-store",
   },
   Namoratab: {
-    Store: "nebula-store",
+    Store: "namoratab-store",
   },
 }

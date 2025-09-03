@@ -1,8 +1,8 @@
-import { HouseIcon, InfoIcon } from "@phosphor-icons/react"
+import { HouseIcon } from "@phosphor-icons/react"
 import { Link } from "@tanstack/react-router"
 import { TopAppBar } from "#/components/top-app-bar"
 import { skins } from "#/shared/skins"
-import { useNamoratabStore } from "./-shared"
+import { InfoBtn } from "./info-btn"
 
 export const TopBar = () => (
   <TopAppBar
@@ -16,14 +16,4 @@ const GoHomeBtn = () => (
   <Link to="/" className={skins.btnIcon()}>
     <HouseIcon size={32} />
   </Link>
-)
-
-const InfoBtn = () => (
-  <button
-    type="button"
-    className={skins.btnIcon()}
-    onClick={() => useNamoratabStore.getState().setInfoModalOpen(true)}
-  >
-    <InfoIcon size={32} />
-  </button>
 )

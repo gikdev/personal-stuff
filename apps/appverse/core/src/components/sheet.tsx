@@ -5,9 +5,14 @@ import { cx } from "#/shared/cva.config"
 interface ContainerProps {
   children?: ReactNode
   onOverlayClick?: () => void
+  contentContainerClassName?: string
 }
 
-function Container({ children, onOverlayClick }: ContainerProps) {
+function Container({
+  children,
+  onOverlayClick,
+  contentContainerClassName,
+}: ContainerProps) {
   return (
     <div className="absolute inset-0 h-full w-full flex flex-col z-10">
       <button
@@ -16,7 +21,12 @@ function Container({ children, onOverlayClick }: ContainerProps) {
         onClick={onOverlayClick}
       />
 
-      <div className="flex flex-col rounded-t-md-elements max-h-[80dvh] overflow-hidden bg-tusi-950 border-t border-tusi-800">
+      <div
+        className={cx(
+          "flex flex-col rounded-t-md-elements max-h-[80dvh] overflow-hidden bg-tusi-950 border-t border-tusi-800",
+          contentContainerClassName,
+        )}
+      >
         {children}
       </div>
     </div>
