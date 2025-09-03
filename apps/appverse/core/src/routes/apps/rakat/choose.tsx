@@ -1,14 +1,12 @@
 import {
   CircleIcon,
   HandsPrayingIcon,
-  HouseIcon,
   RadioButtonIcon,
 } from "@phosphor-icons/react"
-import { createFileRoute, Link } from "@tanstack/react-router"
-import { TopAppBar } from "#/components/top-app-bar"
+import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { cx } from "#/shared/cva.config"
 import { skins } from "#/shared/skins"
-import { useRakatStore } from "./-shared/store"
+import { useRakatStore } from "./-store"
 
 export const Route = createFileRoute("/apps/rakat/choose")({
   component: RouteComponent,
@@ -16,22 +14,11 @@ export const Route = createFileRoute("/apps/rakat/choose")({
 
 function RouteComponent() {
   return (
-    <div className={skins.page()}>
-      <TopAppBar
-        title="رکعت"
-        startingStuff={
-          <Link to="/" className={skins.btnIcon()}>
-            <HouseIcon size={32} />
-          </Link>
-        }
-      />
+    <main className="flex flex-col flex-1 items-center justify-between gap-8 p-4">
+      <ChooseRakatOptionSection />
 
-      <main className="flex flex-col flex-1 items-center justify-between gap-8 p-4">
-        <ChooseRakatOptionSection />
-
-        <StartBtn />
-      </main>
-    </div>
+      <StartBtn />
+    </main>
   )
 }
 
@@ -98,18 +85,20 @@ function RakatOption({ title, isActive = false, onClick }: RakatOptionProps) {
 }
 
 function StartBtn() {
+  const navigate = useNavigate()
   const rakatCount = useRakatStore(s => s.rakatCount)
 
-  const isRakatCountValid = rakatCount != null
+  const isRakatCountValid = rakatCount !== 0
 
   return (
-    <Link
-      to="/apps/rakat/pray"
+    <button
+      type="button"
       disabled={!isRakatCountValid}
+      onClick={() => navigate({ to: "/apps/rakat/pray" })}
       className={skins.btn({ color: "brand", className: "w-full" })}
     >
       <HandsPrayingIcon size={24} weight="fill" />
       <span>شروع</span>
-    </Link>
+    </button>
   )
 }

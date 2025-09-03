@@ -1,9 +1,12 @@
 import { MinusIcon } from "@phosphor-icons/react"
+import { useKeyPress } from "react-haiku"
 import { skins } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
+const decTotalSeconds = useWorkTimerStore.getState().decTotalSeconds
+
 export function DecTotalBtn() {
-  const decTotalSeconds = useWorkTimerStore(s => s.decTotalSeconds)
+  useKeyPress(["-"], decTotalSeconds)
 
   return (
     <button

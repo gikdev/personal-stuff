@@ -1,38 +1,21 @@
-import { ArrowClockwiseIcon, HouseIcon } from "@phosphor-icons/react"
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router"
+import { ArrowClockwiseIcon } from "@phosphor-icons/react"
+import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import type { ReactNode } from "react"
-import { TopAppBar } from "#/components/top-app-bar"
 import { cx } from "#/shared/cva.config"
 import { skins } from "#/shared/skins"
-import { toPersianDigits } from "#/shared/utils"
-import { useRakatStore } from "./-shared/store"
+import { useRakatStore } from "./-store"
 
 export const Route = createFileRoute("/apps/rakat/pray")({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const rakatCount = useRakatStore(s => s.rakatCount)
-
-  const title = `${toPersianDigits((rakatCount ?? 0).toString())} رکعت`
-
   return (
-    <div className={skins.page()}>
-      <TopAppBar
-        title={title}
-        startingStuff={
-          <Link to="/" className={skins.btnIcon()}>
-            <HouseIcon size={32} />
-          </Link>
-        }
-      />
+    <main className="flex flex-col flex-1 items-center justify-between gap-4 p-4">
+      <RakatsSuperBtn />
 
-      <main className="flex flex-col flex-1 items-center justify-between gap-4 p-4">
-        <RakatsSuperBtn />
-
-        <ResetBtn />
-      </main>
-    </div>
+      <ResetBtn />
+    </main>
   )
 }
 

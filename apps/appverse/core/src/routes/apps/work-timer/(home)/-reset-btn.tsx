@@ -1,9 +1,12 @@
 import { ArrowUUpRightIcon } from "@phosphor-icons/react"
+import { useKeyPress } from "react-haiku"
 import { skins } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
+const resetTimer = useWorkTimerStore.getState().resetTimer
+
 export function ResetBtn() {
-  const resetTimer = useWorkTimerStore(s => s.resetTimer)
+  useKeyPress(["r"], resetTimer)
 
   return (
     <button

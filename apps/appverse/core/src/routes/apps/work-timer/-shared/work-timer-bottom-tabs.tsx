@@ -1,4 +1,6 @@
 import { ClockIcon, GearIcon, TimerIcon } from "@phosphor-icons/react"
+import { useLocation, useNavigate } from "@tanstack/react-router"
+import { useKeyPress } from "react-haiku"
 import { BottomTabBar, type TabItem } from "#/components/bottom-tab-bar"
 
 const workTimerTabs: TabItem[] = [
@@ -22,6 +24,15 @@ const workTimerTabs: TabItem[] = [
   },
 ]
 
-export const WorkTimerBottomTabs = () => (
-  <BottomTabBar tabItems={workTimerTabs} />
-)
+export function WorkTimerBottomTabs() {
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+
+  useKeyPress(["T"], () => {
+    const isInTotalPage = pathname.includes("total")
+    if (isInTotalPage) navigate({ to: "/apps/work-timer" })
+    else navigate({ to: "/apps/work-timer/total" })
+  })
+
+  return <BottomTabBar tabItems={workTimerTabs} />
+}

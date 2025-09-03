@@ -1,5 +1,5 @@
 import { createFileRoute, Navigate } from "@tanstack/react-router"
-import { useRakatStore } from "./-shared/store"
+import { useRakatStore } from "./-store"
 
 export const Route = createFileRoute("/apps/rakat/")({
   component: RouteComponent,

@@ -1,9 +1,13 @@
 import { PlusIcon } from "@phosphor-icons/react"
+import { useKeyPress } from "react-haiku"
 import { skins } from "#/shared/skins"
 import { useWorkTimerStore } from "../-shared"
 
+const incTotalSeconds = useWorkTimerStore.getState().incTotalSeconds
+
 export function IncTotalBtn() {
-  const incTotalSeconds = useWorkTimerStore(s => s.incTotalSeconds)
+  useKeyPress(["+"], incTotalSeconds)
+  useKeyPress(["="], incTotalSeconds)
 
   return (
     <button
