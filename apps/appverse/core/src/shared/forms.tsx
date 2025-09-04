@@ -1,16 +1,10 @@
-import {
-  CircleNotchIcon,
-  type Icon,
-  MinusIcon,
-  PlusIcon,
-} from "@phosphor-icons/react"
+import { CircleNotchIcon, MinusIcon, PlusIcon } from "@phosphor-icons/react"
 import {
   type AnyFieldApi,
   createFormHook,
   createFormHookContexts,
 } from "@tanstack/react-form"
-import type { VariantProps } from "cva"
-import { type ComponentProps, useId } from "react"
+import { type ComponentProps, type ReactNode, useId } from "react"
 import { skins } from "#/shared/skins"
 
 export const { fieldContext, formContext, useFieldContext, useFormContext } =
@@ -22,6 +16,7 @@ export const { useAppForm } = createFormHook({
   fieldComponents: {
     NumberWithBtns,
     SimpleNumber,
+    SimpleTextInput,
   },
   formComponents: {
     SubmitBtn,
@@ -134,20 +129,20 @@ function ErrorMsg({ field }: { field: AnyFieldApi }) {
 
 // #region <SubmitBtn />
 interface SubmitBtnProps {
-  Icon: Icon
+  iconStarting?: ReactNode
+  iconEnding?: ReactNode
   title: string | null
   onClick?: () => void
   type?: ComponentProps<"button">["type"]
-  color?: VariantProps<typeof skins.btn>["color"]
   className?: string
 }
 
 function SubmitBtn({
-  Icon,
+  iconStarting,
+  iconEnding,
   title,
   onClick,
   type,
-  color = "neutral",
   className = "",
 }: SubmitBtnProps) {
   const form = useFormContext()
@@ -155,7 +150,6 @@ function SubmitBtn({
   return (
     <form.Subscribe selector={s => [s.canSubmit, s.isSubmitting]}>
       {([canSubmit, isSubmitting]) => {
-        const FinalIcon = isSubmitting ? CircleNotchIcon : Icon
         const showTitle = title !== null
         const finalTitle = isSubmitting ? "در حال بارگذاری..." : title
         const finalType = type || "button"
@@ -167,17 +161,51 @@ function SubmitBtn({
             type={finalType}
             onClick={finalClickHandler}
             disabled={!canSubmit || isSubmitting}
-            className={skins.btn({ color, className })}
+            className={className}
           >
-            <FinalIcon
-              size={24}
-              weight={color === "brand" ? "fill" : "regular"}
-            />
-            {showTitle && <span>{finalTitle}</span>}
+            {isSubmitting ? (
+              <CircleNotchIcon />
+            ) : (
+              <>
+                {iconStarting}
+                {showTitle && <span>{finalTitle}</span>}
+                {iconEnding}
+              </>
+            )}
           </button>
         )
       }}
     </form.Subscribe>
   )
 }
+// #endregion
+
+// #region <SimpleTextInput />
+interface SimpleTextInputProps {
+  label: string
+  inputType?: "text" | "password"
+}
+
+function SimpleTextInput({ label, inputType = "text" }: SimpleTextInputProps) {
+  const field = useFieldContext<string>()
+
+  return (
+    <label className={skins.labeler()}>
+      <p>{label}</p>
+
+      <input
+        dir="ltr"
+        type={inputType}
+        name={field.name}
+        className={skins.input()}
+        value={field.state.value}
+        onBlur={field.handleBlur}
+        onChange={e => field.handleChange(e.target.value)}
+      />
+
+      <ErrorMsg field={field} />
+    </label>
+  )
+}
+
 // #endregion

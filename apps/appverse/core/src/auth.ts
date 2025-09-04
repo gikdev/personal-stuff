@@ -6,7 +6,7 @@ const myHashedPassword = import.meta.env.VITE_MY_PASSWORD as string
 interface AuthStore {
   isAuthenticated: boolean
   setAuthenticated: (isAuthenticated: boolean) => void
-  authenticate: (passwordInput: string) => void
+  authenticate: (passwordInput: string) => boolean
 }
 
 export const useAuthStore = create<AuthStore>()(set => ({
@@ -15,5 +15,6 @@ export const useAuthStore = create<AuthStore>()(set => ({
   authenticate: (passwordInput: string) => {
     const isAuthenticated = sha512(passwordInput) === myHashedPassword
     set({ isAuthenticated })
+    return isAuthenticated
   },
 }))

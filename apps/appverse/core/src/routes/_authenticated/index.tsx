@@ -7,7 +7,6 @@ import { useRef } from "react"
 import { type App, apps } from "#/data/apps"
 import { cx } from "#/shared/cva.config"
 import { skins } from "#/shared/skins"
-import config from "../../../config.json"
 
 export const Route = createFileRoute("/_authenticated/")({
   component: Index,
@@ -28,10 +27,6 @@ function Index() {
       <div className="flex flex-wrap items-center justify-center gap-4">
         {apps.map(mapApp)}
       </div>
-
-      <p dir="ltr" className="text-center">
-        <code>v{config.version}</code>
-      </p>
     </div>
   )
 }

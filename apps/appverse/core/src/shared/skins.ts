@@ -49,7 +49,12 @@ const btn = cva({
   `,
   variants: {
     mode: {
-      contained: null,
+      contained: `
+        text-tusi-100
+        disabled:text-tusi-400
+        disabled:bg-tusi-600 
+        disabled:hover:bg-tusi-600
+      `,
       outline: null,
       text: `
         bg-transparent
@@ -62,6 +67,7 @@ const btn = cva({
     intent: {
       neutral: null,
       danger: null,
+      brand: null,
     },
     isIcon: {
       false: null,
@@ -106,6 +112,14 @@ const btn = cva({
         text-danger-400
         hover:text-danger-300
         hover:bg-danger-400/10
+      `,
+    },
+    {
+      intent: "brand",
+      mode: "contained",
+      className: `
+        bg-brand-600
+        hover:bg-brand-700
       `,
     },
   ],
