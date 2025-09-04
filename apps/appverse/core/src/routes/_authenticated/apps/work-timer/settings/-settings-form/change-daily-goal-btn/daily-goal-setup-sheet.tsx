@@ -3,6 +3,7 @@ import { z } from "zod/v4"
 import { Sheet } from "#/components/sheet"
 import { useAppForm } from "#/shared/forms"
 import { useWorkTimerStore } from "../../../-shared"
+import { skins } from "#/shared/skins"
 
 const DailyGoalSetupSchema = z.object({
   daysPerMonth: z
@@ -57,10 +58,13 @@ export function DailyGoalSetupSheet({ onClose }: DailyGoalSetupSheetProps) {
 
         <Sheet.Footer>
           <form.SubmitBtn
-            Icon={MathOperationsIcon}
+            iconStarting={<MathOperationsIcon weight="fill" />}
             title="محاسبه هدف روزانه"
-            className="w-full"
-            color="brand"
+            className={skins.btn({
+              intent: "brand",
+              mode: "contained",
+              className: "w-full",
+            })}
           />
         </Sheet.Footer>
       </form.AppForm>

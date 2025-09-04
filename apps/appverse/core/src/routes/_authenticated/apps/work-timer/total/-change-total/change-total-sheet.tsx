@@ -90,26 +90,37 @@ export function ChangeTotalSheet({ onClose }: ChangeTotalSheetProps) {
           <div className={skins.elementGroup({ className: "flex-col" })}>
             <div className="flex gap-1 w-full">
               <form.SubmitBtn
-                Icon={MinusIcon}
+                iconStarting={<MinusIcon />}
                 title={null}
                 onClick={() => form.handleSubmit({ submitAction: "subtract" })}
-                className="flex-1"
+                className={skins.btn({
+                  mode: "contained",
+                  intent: "neutral",
+                  className: "flex-1",
+                })}
               />
 
               <form.SubmitBtn
-                Icon={PlusIcon}
+                iconStarting={<PlusIcon />}
                 title={null}
                 onClick={() => form.handleSubmit({ submitAction: "add" })}
-                className="flex-1"
+                className={skins.btn({
+                  mode: "contained",
+                  intent: "neutral",
+                  className: "flex-1",
+                })}
               />
             </div>
 
             <form.SubmitBtn
-              Icon={PencilSimpleIcon}
+              iconStarting={<PencilSimpleIcon weight="fill" />}
               title="تغییر مجموع کار"
               onClick={() => form.handleSubmit({ submitAction: "change" })}
-              className="w-full"
-              color="brand"
+              className={skins.btn({
+                mode: "contained",
+                intent: "brand",
+                className: "flex-1",
+              })}
             />
           </div>
         </Sheet.Footer>

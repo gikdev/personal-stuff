@@ -115,6 +115,16 @@ const btn = cva({
       `,
     },
     {
+      intent: "neutral",
+      mode: "contained",
+      className: `
+        text-tusi-400
+        hover:text-tusi-100
+        bg-tusi-800
+        hover:bg-tusi-700
+      `,
+    },
+    {
       intent: "brand",
       mode: "contained",
       className: `
