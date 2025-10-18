@@ -11,10 +11,14 @@ export function PlayStopBtn() {
 
   const isPlaying = startedAt != null && endedAt == null
   const Icon = isPlaying ? StopIcon : PlayIcon
-  const action = isPlaying
-    ? workTimerSlice.actions.endTimer()
-    : workTimerSlice.actions.startTimer()
-  const thingToDo = () => dispatch(action)
+
+  const thingToDo = () => {
+    if (isPlaying) {
+      dispatch(workTimerSlice.actions.endTimer())
+    } else {
+      dispatch(workTimerSlice.actions.startTimer())
+    }
+  }
 
   useKeyPress([" "], thingToDo)
 

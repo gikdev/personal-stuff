@@ -25,7 +25,7 @@ const createWindow = () => {
         pathname: path.join(__dirname, "dist", "index.html"),
         protocol: "file:",
         slashes: true,
-      })
+      }),
     )
   } else {
     // Development mode: change to your dev server URL

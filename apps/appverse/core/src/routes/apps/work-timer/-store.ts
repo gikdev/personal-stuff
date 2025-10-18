@@ -98,10 +98,10 @@ export const workTimerSlice = createSlice({
   },
 })
 
-export function useWorkTimerElapsedSeconds() {
-  const startedAt = useAppSelector(s => s.apps.workTimer.startedAt)
-  const endedAt = useAppSelector(s => s.apps.workTimer.endedAt)
-
+export function calcWorkTimerElapsedSeconds(
+  startedAt: string | null,
+  endedAt: string | null,
+) {
   if (!startedAt) return 0
 
   const start = new Date(startedAt).getTime()

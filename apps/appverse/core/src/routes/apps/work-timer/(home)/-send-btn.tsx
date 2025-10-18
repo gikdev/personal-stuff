@@ -1,14 +1,16 @@
 import { PaperPlaneTiltIcon } from "@phosphor-icons/react"
 import { useKeyPress } from "react-haiku"
 import { skins } from "#/shared/skins"
-import { useAppDispatch } from "#/store"
-import { useWorkTimerElapsedSeconds, workTimerSlice } from "../-store"
+import { useAppDispatch, useAppStore } from "#/store"
+import { calcWorkTimerElapsedSeconds, workTimerSlice } from "../-store"
 
 export function SendBtn() {
   const dispatch = useAppDispatch()
-  const elapsedSeconds = useWorkTimerElapsedSeconds()
+  const appStore = useAppStore()
 
   const addElapsedToTotal = () => {
+    const { endedAt, startedAt } = appStore.getState().apps.workTimer
+    const elapsedSeconds = calcWorkTimerElapsedSeconds(startedAt, endedAt)
     dispatch(workTimerSlice.actions.incTotalSecondsBy(elapsedSeconds))
     dispatch(workTimerSlice.actions.resetTimer())
   }

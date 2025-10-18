@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
 import { TimeFormatter } from "#/shared/utils"
-import { useWorkTimerElapsedSeconds } from "../-store"
+import { useAppSelector } from "#/store"
+import { calcWorkTimerElapsedSeconds } from "../-store"
 
 export function TimerTime() {
-  const elapsedSeconds = useWorkTimerElapsedSeconds()
+  const startedAt = useAppSelector(s => s.apps.workTimer.startedAt)
+  const endedAt = useAppSelector(s => s.apps.workTimer.endedAt)
+  const elapsedSeconds = calcWorkTimerElapsedSeconds(startedAt, endedAt)
   const forceUpdate = useForceUpdate()
 
   useEffect(() => {
