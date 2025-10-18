@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu, dialog } = require("electron")
 const path = require("node:path")
+const url = require("node:url")
 
 if (require("electron-squirrel-startup")) {
   app.quit()
@@ -11,11 +12,28 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 400,
     height: 800,
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: false, // recommended for security
+    },
   })
 
-  mainWindow.loadFile(path.join(__dirname, "dist", "index.html"))
+  if (app.isPackaged) {
+    // Load local index.html when packaged
+    mainWindow.loadURL(
+      url.format({
+        pathname: path.join(__dirname, "dist", "index.html"),
+        protocol: "file:",
+        slashes: true,
+      })
+    )
+  } else {
+    // Development mode: change to your dev server URL
+    mainWindow.loadURL("http://localhost:5173")
+  }
 }
 
+// App ready
 app.whenReady().then(() => {
   createWindow()
 
@@ -26,12 +44,14 @@ app.whenReady().then(() => {
   })
 })
 
+// Quit when all windows are closed
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit()
   }
 })
 
+// Menu template
 const template = [
   {
     label: "Menu",
@@ -57,6 +77,7 @@ const template = [
 
 Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 
+// Menu actions
 function toggleDevTools() {
   mainWindow?.webContents.toggleDevTools()
 }
