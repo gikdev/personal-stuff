@@ -1,12 +1,15 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router"
 import { Bounce, ToastContainer } from "react-toastify"
+import { AppStoreProvider } from "#/store"
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <ToastProvider />
-      <Outlet />
-      {/* <TanStackRouterDevtools position="top-left" /> */}
+      <AppStoreProvider>
+        <ToastProvider />
+        <Outlet />
+        {/* <TanStackRouterDevtools position="top-left" /> */}
+      </AppStoreProvider>
     </>
   ),
 })

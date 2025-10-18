@@ -15,7 +15,7 @@ import { routeTree } from "./routeTree.gen"
 
 const hashHistory = createHashHistory()
 
-const router = createRouter({
+export const router = createRouter({
   routeTree,
   history: hashHistory,
   defaultPendingComponent: Pending,
